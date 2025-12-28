@@ -11,6 +11,14 @@ model User {
   id        Int      @id @default(autoincrement())
   name      String
   email     String   @unique
-  password String
+  password String?
   createdAt DateTime @default(now())
+}
+model Task {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  completed   Boolean  @default(false)
+  dueDate     DateTime?
+  createdAt   DateTime @default(now())
 }

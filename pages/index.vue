@@ -16,9 +16,7 @@ const dueDate = ref("");
 const filter = ref<"all" | "active" | "completed">("all");
 
 const fetchTasks = async () => {
-  const filterValue = (filter as any)._value;
-  console.log("FETCH TASK", filter,"VALUE", filterValue);
-  
+  const filterValue = (filter as any)._value; 
   const res = await $fetch<Task[]>('/api/tasks', { params: { filter: filterValue } })
   tasks.value = res
 }
